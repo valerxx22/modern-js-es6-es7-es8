@@ -236,3 +236,172 @@ let updatedData = data;
 data.push(4);
 console.log(data); // Output [1, 2, 3, 4]
 ```
+
+## padStart() & padEnd()
+JS gives some more importance for Strings with `padStart` and `padEnd` methods. What this does, it gives us the ability to add values to the start of the string and add values to the end of the string, depending on how long is the string. So let's take this in a example.
+
+```javascript
+let example = 'John Doe';
+
+console.log(example.padStart(10, 'a')); // Output: aaJohn Doe
+```
+
+```javascript
+let example = 'John';
+
+console.log(example.padEnd(10, 'a')); // Output: Johnaaaaaa
+```
+
+## Classes
+Classes are great addition to take JS, to be more in a more Object Oriented way. What we will do, we will define a class and showcase some of the things that you can do with classes and how they work.
+
+Source `car.js`
+```javascript
+export class Car {
+    constructor (model, traction) {
+        this.model = model;
+        this.traction = traction;
+    }
+
+    accelerate(speed) {
+        console.log(speed);
+    }
+
+    static parked () {
+        console.log(true);
+    }
+}
+```
+
+Source `app.js`
+```javascript
+impoort { Car } from './car.js';
+
+let audi = new Car ('Audi', 4);
+audi.traction = 2;
+audi.accelerate('60 km/h');
+console.log(audi.traction); 
+console.log(Car.parked()); // W 
+// Output:
+// 60 km/h
+// 2
+// true
+```
+
+Another great option when it comes to classes is the ability to create a get method. A get method is really a property you want to create that only to return some value.
+
+Source `car.js`
+```javascript
+export class Car {
+    constructor (model, traction) {
+        this.model = model;
+        this.traction = traction;
+    }
+
+    accelerate(speed) {
+        console.log(speed);
+    }
+
+    get metaData() {
+        return `Model: ${this.model}, Traction: ${this.traction}`;
+    }
+
+    static parked () {
+        console.log(true);
+    }
+}
+```
+
+Source `app.js`
+```javascript
+impoort { Car } from './car.js';
+
+let audi = new Car ('Audi', 4);
+console.log(audi.metaData)
+// Output:
+// Model: Audi, Traction: 4;
+```
+
+As you continue to dive into classes and the object orieted programming approach, what will happen is, sometimes you'll share properties or be very similar, so in our instance here let's take a example.
+
+Source `suv.js`
+```javascript
+export class Suv extends Car {
+    constructor (model, traction, trail) {
+        super(model, traction); // use super(), to pass in values from a extended out parent class
+        this.trail = trail;
+    }
+}
+```
+
+Let's go ahead and moving forward and see how we can override a method.
+
+Source `suv.js`
+```javascript
+export class Suv extends Car {
+    accelerate(speed = '100 km/h') {
+        console.log(speed);
+    }
+}
+```
+
+Source `app.js`
+```javascript
+impoort { Car, Suv } from './car.js';
+
+let suv = new Suv ('Jeep', 4);
+car.accelerate(); // Output: 100 km/h
+
+console.log(suv.metaData); // Output: Model: Jeep, Traction: 4;
+```
+
+## Trailing Commas
+
+Trailing commas (sometimes called "final commas") can be useful when adding new elements, parameters, or properties to JavaScript code. If you want to add a new property, you can simply add a new line without modifying the previously last line if that line already uses a trailing comma.
+
+```javascript
+function add(param) {
+    const example = {
+        name: 'John',
+    }
+
+    console.log(example);
+}
+add(2); // Output: {name: "John"}
+```
+
+## Async & Await
+There’s a special syntax to work with promises in a more comfort fashion, called `async/await`. It’s surprisingly easy to understand and use.
+
+#### From MDN
+
+> An asynchronous function is a function which operates asynchronously via the event loop, using an implicit Promise to return its result. But the syntax and structure of your code using `async` functions is much more like using standard synchronous functions.
+
+```javascript
+const apiUrl = 'https://www.cryptocompare.com/api/data/coinlist/';
+
+function getCoinList() {
+    fetch(apiUrl)
+    .then( (response) => response.json())
+    .then( (json) => {
+        console.log(json.Response);
+    }).catch( (errpr) => {
+        console.log('Failed');
+    });
+}
+getCoinList(); // Output: Success
+```
+
+> An `async` function can contain an `await` expression that pauses the execution of the `async` function and waits for the passed Promise's resolution, and then resumes the `async` function's execution and returns the resolved value. Remember, the `await` keyword is only valid inside `async` functions.
+
+```javascript
+const apiUrl = 'https://www.cryptocompare.com/api/data/coinlist/';
+
+async function getCoinList() {
+    const response = await fetch(apiUrl);
+    const json = await response.json();
+
+    console.log(json.Response);
+}
+getCoinList(); // Output: Success
+```

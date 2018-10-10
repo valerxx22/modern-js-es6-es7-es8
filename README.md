@@ -2,6 +2,7 @@
 This document will teach you the most modern features of JavaScript, also known as ES6, ES7, ES8
 
 ## Template Literals
+---
 Strings historically in JS has been a second class citizen, haven't got much love in comparison with other programming languages. Let's take an example:
 
 #### The good old days:
@@ -57,6 +58,7 @@ world!
 ```
 
 ## Destructuring Objects
+---
 One of the coolest additions to the JS programming language has been destructuring objects, So let's take the example bellow:
 
 ```javascript
@@ -90,6 +92,7 @@ console.log(`${fn} ${ln}`); // Output: John Doe
 ```
 
 ## Destructuring Arrays
+---
 Destructuring arrays has been another great feature that has been added to JS and is very similar to how we destructed objects above, so let's take an example.
 
 ```javascript
@@ -108,6 +111,7 @@ console.log(firstName, lastName); // Output: John Bush
 ```
 
 ## Object Literal
+---
 If you have noticed modern JS has put a special importance on writing less code, while still being readable and maintainable. Object Literal is nor difference here.
 
 ```javascript
@@ -131,6 +135,7 @@ addressFunc('New Jersey', 'New York'); // Output: {newCity: "New Jersey", newSta
 Object literals is an excellent way for us not to have to write duplicate code, that doesn't help in explaining it, but allows us to write less code while still being very descriptive.
 
 ## Spread Operator
+---
 This is another great addition to JS, one you can use almost on daily basis at work. Let's take it in an example.
 
 ```javascript
@@ -142,6 +147,7 @@ console.log(arrayTwo); // Output: [1, 2, 3, 4, 5, 6, 7]
 Actually it's unwrapping the values of `arrayOne` into `arrayTwo`. All the new values are added to `arrayTwo`, also it's not passing it by reference, is it instantiating new array in this instance.
 
 ## Rest Operator
+---
 Rest Operator although is not used widely as Spread Operator, is somewhat similar and just as valuable to worth mentioning. It gives the ability to get the arguments out of our function and it's used in a case when we don't know how many inputs are going to be used. Let's take it in an example.
 ```javascript
 function add(...nums) {
@@ -153,6 +159,7 @@ add(8, 12, 32, 41, 51); // Output: [8, 12, 32, 41, 51]
 When you're going to write a function and you don't know how many values are gonna be inputted you just know it's going to be some sort of value but you don't want to necessarily just pass an array for various reasons you may want to consider the rest operator.
 
 ## Arrow Functions
+---
 Arrow functions are a great way to eliminate some of the unnecessary boilerplate of callback functions and comes with a lot of functionality, with some key points you don't know exists.
 ```javascript
 function add(...nums) {
@@ -164,6 +171,7 @@ add(8, 12, 32, 41, 51); // Output: 144
 ```
 
 ## Default Params
+---
 Default parameters are another new concept, but it's around in other programming languages for quite some time and it provides us a lot of value. Let's take it in an example.
 
 ```javascript
@@ -180,6 +188,7 @@ add(); // Output: 144
 So if we never pass an array when calling the function, we would've get a error. Because `numArray` will be undefined, but if we use optional parameters and add to the parameter `numArray = []`, because sometimes maybe when we call it, can be that it doesn't matter, sometimes it can be just an empty array.
 
 ## Includes
+---
 The `includes()` method determines whether an array includes certain element, returning `true` or `false`.
 ```javascript
 var arrayOne = [1, 2, 3];
@@ -188,6 +197,7 @@ console.log(arrayOne.includes(2)); // Output: true
 ```
 
 ## Let & Const
+---
 So `let` is a stricter version of `var` and which it uses block scope, so in our case:
 ```javascript
 if (false) {
@@ -223,6 +233,7 @@ console.log(example); // Output: SyntaxError: unknown: "example" is read-only
 ```
 
 ## Import & Export
+---
 The `import` statement is used to import bindings which are exported by another module, while `export` statement is used when creating JS modules to export functions, objects, or primitive values from the module so they can be used by other programs with the `import` statement.
 
 Source `example.js`
@@ -238,6 +249,7 @@ console.log(data); // Output [1, 2, 3, 4]
 ```
 
 ## padStart() & padEnd()
+---
 JS gives some more importance for Strings with `padStart` and `padEnd` methods. What this does, it gives us the ability to add values to the start of the string and add values to the end of the string, depending on how long is the string. So let's take this in a example.
 
 ```javascript
@@ -253,6 +265,7 @@ console.log(example.padEnd(10, 'a')); // Output: Johnaaaaaa
 ```
 
 ## Classes
+---
 Classes are great addition to take JS, to be more in a more Object Oriented way. What we will do, we will define a class and showcase some of the things that you can do with classes and how they work.
 
 Source `car.js`
@@ -356,7 +369,7 @@ console.log(suv.metaData); // Output: Model: Jeep, Traction: 4;
 ```
 
 ## Trailing Commas
-
+---
 Trailing commas (sometimes called "final commas") can be useful when adding new elements, parameters, or properties to JavaScript code. If you want to add a new property, you can simply add a new line without modifying the previously last line if that line already uses a trailing comma.
 
 ```javascript
@@ -371,6 +384,7 @@ add(2); // Output: {name: "John"}
 ```
 
 ## Async & Await
+---
 There’s a special syntax to work with promises in a more comfort fashion, called `async/await`. It’s surprisingly easy to understand and use.
 
 #### From MDN

@@ -294,7 +294,7 @@ let audi = new Car ('Audi', 4);
 audi.traction = 2;
 audi.accelerate('60 km/h');
 console.log(audi.traction); 
-console.log(Car.parked()); // W 
+console.log(Car.parked());
 // Output:
 // 60 km/h
 // 2
@@ -418,4 +418,21 @@ async function getCoinList() {
     console.log(json.Response);
 }
 getCoinList(); // Output: Success
+```
+
+## Sets
+---
+The Set object lets you store unique values of any type, whether primitive values or object references. This has been a great addition to JS, this allows us to create a unique list, that can be also iterable.
+
+```javascript
+const exampleSet = new Set([1,2,3,4,1,2,3,4]);
+ 
+console.log(exampleSet.size); // Output: 4
+console.log(exampleSet.has(1)); // Output: true
+
+exampleSet.delete(4); // removes 4 from the set
+
+exampleSet.add(5); // Set [ 1,2,3,4,1,2,3,4,5 ]
+exampleSet.add(5).add(10); // Set [ 1,2,3,4,1,2,3,4,5,5,10 ]
+
 ```
